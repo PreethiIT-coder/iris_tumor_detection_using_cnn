@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="about-container fade-in">
+    <h2>
+        About the mission
+    </h2>
+    <p>
+        Our project focuses on using advanced machine learning techniques to detect tumors in iris images. 
+        We leverage convolutional neural networks (CNN) for precise and reliable results. 
+        Our mission is to provide a tool that aids in early diagnosis and improves the efficiency of medical professionals.
+    </p>
+    <p>
+        We aim to combine cutting-edge technology with user-friendly interfaces to make medical imaging analysis accessible and effective.
+    </p>
+</div>
+
+<style>
+    body {
+    background-color: #1a1a1a; /* Dark background for contrast */
+}
+
+    .about-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(214, 199, 199, 0.1); /* Semi-transparent background */
+    border-radius: 15px; /* Rounded corners */
+    backdrop-filter: blur(10px); /* Glassmorphism blur effect */
+    border: 1px solid rgba(22, 4, 4, 0.3); /* Light border for effect */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #0c0c0c; /* White text color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 150px rgba(243, 43, 216, 0.5); /* Neon shadow effect on hover */
+}
+    h2 {
+    color: #0e0f0f; /* Neon teal color for the heading */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(5, 214, 241, 0.7); /* Neon glow effect */
+    }
+
+    p {
+    line-height: 1.6;
+    color: #080808; /* Light gray for paragraphs */
+    font-size: 1.1em;
+    margin: 10px 0;
+    }
+
+
+    /* Fade-in effect */
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<script>
+    // This script ensures the fade-in class is applied
+    document.addEventListener('DOMContentLoaded', function () {
+        const aboutContainer = document.querySelector('.about-container');
+        aboutContainer.classList.add('fade-in');
+    });
+</script>
+{% endblock %}

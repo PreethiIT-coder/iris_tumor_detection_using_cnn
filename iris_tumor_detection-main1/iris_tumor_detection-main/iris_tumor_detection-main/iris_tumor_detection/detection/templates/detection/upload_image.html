@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="color: rgb(236, 240, 23);"><marquee>Upload Image for Tumor Detection</marquee></h1>
+<form method="POST" enctype="multipart/form-data" class="upload-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="detect-button">Detect Tumor</button>
+</form>
+{% endblock %}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #000000, #434343);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0; /* Remove default margin */
+        
+    }
+
+    .upload-form {
+        position: relative;
+        border-radius: 15px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1); /* Semi-transparent for glass effect */
+        backdrop-filter: blur(10px); /* Glassmorphism effect */
+        box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        overflow: hidden;
+    }
+
+    .upload-form:hover {
+        box-shadow: 0 0 30px rgba(255, 20, 147, 1),
+                    0 0 50px rgba(255, 20, 147, 0.8),
+                    0 0 70px rgba(255, 20, 147, 0.6);
+        transform: scale(1.02); /* Slight scaling effect on hover */
+    }
+
+    .detect-button {
+        background-color: #1f3a57;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, box-shadow 0.3s;
+        position: relative;
+    }
+
+    .detect-button:hover {
+        background-color: #1c476d;
+        box-shadow: 0 0 20px rgba(255, 20, 147, 1), 0 0 40px rgba(255, 20, 147, 0.8);
+    }
+
+    @keyframes glow {
+        0%, 100% { box-shadow: 0 0 15px rgba(255, 20, 147, 0.8); }
+        50% { box-shadow: 0 0 30px rgba(255, 20, 147, 1), 0 0 50px rgba(255, 20, 147, 0.6); }
+    }
+
+    .upload-form:hover {
+        animation: glow 1.5s infinite; /* Continuous glow effect */
+    }
+</style>
+
+      
